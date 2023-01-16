@@ -2,7 +2,17 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ['techcrunch.com', 'localhost'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: '**.**',
+      },
+      {
+        protocol: 'http',
+        hostname: '**.**',
+      },
+    ],
+    domains: ['www.si.com'],
   },
 }
 

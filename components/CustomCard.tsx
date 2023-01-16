@@ -45,8 +45,9 @@ const CustomCard = ({ article }: Props) => {
     >
       {/* Image box */}
       <div className='!h-[217px] w-full overflow-hidden relative'>
+        
         <Image
-          src={article.urlToImage}
+          src={article.urlToImage === null ? '': article.urlToImage}
           alt={article.title}
           fill
           className='object-cover'
