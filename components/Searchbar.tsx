@@ -5,7 +5,7 @@ const Searchbar = () => {
   const [searchStr, setSearchStr] = useRecoilState(searchString);
 
   return (
-    <div className='relative flex flex-col py-[50px] px-[75px]'>
+    <div className='relative flex flex-col px-3 py-[50px] md:px-[75px]'>
       <p className='font-semibold text-base'>Filter by keywords</p>
       <label className='relative block'>
         <span className='absolute inset-y-0 left-0 flex items-center pl-3'>
@@ -22,7 +22,7 @@ const Searchbar = () => {
           </svg>
         </span>
         <input
-          className='w-[600px] bg-white placeholder:font-italitc border border-slate-300 rounded-md py-3 pl-10 pr-4 focus:outline-none'
+          className='w-80 bg-white placeholder:font-italitc border border-slate-300 rounded-md py-3 pl-10 pr-4 focus:outline-none'
           placeholder='Enter your keyword to search'
           type='text'
           value={
