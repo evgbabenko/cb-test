@@ -22,7 +22,7 @@ const Searchbar = () => {
           </svg>
         </span>
         <input
-          className='w-80 lg:w-[600px] bg-white placeholder:font-italitc border border-slate-300 rounded-md py-3 pl-10 pr-4 focus:outline-none'
+          className='w-full lg:w-[600px] bg-white placeholder:font-italitc border border-slate-300 rounded-md py-3 pl-10 pr-4 focus:outline-none'
           placeholder='Enter your keyword to search'
           type='text'
           value={
