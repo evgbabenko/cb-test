@@ -34,13 +34,13 @@ const NewsPage = () => {
             className='object-cover'
           />
         </div>
-        <div className='relative -top-[90px] bg-white shadow-md rounded-md px-[75px] space-y-[35px] pb-[35px] mx-[75px]'>
+        <div className='relative -top-[90px] bg-white shadow-md rounded-md px-5 md:px-[75px] space-y-[35px] pb-[35px] mx-5 md:mx-[75px]'>
           <div className='w-full text-center pt-[35px] text-2xl'>
             {currentArticle!.title}
           </div>
           <div>{currentArticle!.content}</div>
         </div>
-        <div className='self-start w-full px-[150px]'>
+        <div className='self-start w-full px-5 md:px-[150px]'>
           <Button size='small' onClick={() => router.push('/')}>
             <p className='read_more_button'>
               <ArrowBackIcon /> Back to home page
