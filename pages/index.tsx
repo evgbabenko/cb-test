@@ -1,12 +1,12 @@
-import Cards from '@/components/Cards'
-import Searchbar from '@/components/Searchbar'
-import { Article } from '@/typings'
-import request_news from '@/utils/requests'
+import Cards from '@/components/Cards';
+import Searchbar from '@/components/Searchbar';
+import { Article } from '@/typings';
+import request_news from '@/utils/requests';
 import Head from 'next/head';
-
+import { useState } from 'react';
 
 interface Props {
-  news: Article[];
+  news: Article[] | null;
 }
 
 export default function Home({ news }: Props) {
@@ -19,15 +19,30 @@ export default function Home({ news }: Props) {
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <div className='relative flex flex-col max-w-[1440px] mx-auto'>
-        <Searchbar />
-        <Cards news={news} />
+        {news === null ? (
+          <div>Sorry, somethimg whong.</div>
+        ) : (
+          <>
+            <Searchbar />
+            <Cards news={news} />
+          </>
+        )}
       </div>
     </>
   );
 }
 
-
 export const getServerSideProps = async () => {
-  const news = await fetch(request_news).then((res) => res.json());
-  return {props:{news: news.articles}};
-}
+  const news = await fetch(request_news)
+    .then((res) => {
+      if (res.status > 300 || res.status < 199) return null
+      else return res.json();
+    })
+    .catch((error) => {
+      console.log(error.message);
+    });
+
+  return news === null
+    ? { props: { news: news } }
+    : { props: { news: news.articles } };
+};
